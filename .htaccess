@@ -1,0 +1,24 @@
+RewriteEngine ON
+RewriteCond %{HTTPS} on
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteRule ^erro/?$ erro.php [NC,L]
+RewriteRule ^install/?$ install.php [NC,L]
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^/?$ index.php [NC,L]
+RewriteRule ^inicio/?$ index.php [NC,L]
+RewriteRule ^logout/?$ index.php?logout [NC,L]
+
+# AJAX
+RewriteRule ^paginaAjax/([a-z0-9_]+)/([a-z0-9_]+)/?$ assets/modulos/$1.php?formUrl=$1&formAjax=$2 [NC,L]
+
+RewriteRule ^ajax/([a-z0-9-]+)/?$ assets/php/ajax.php?f=$1 [NC,L]
+
+# Páginas
+RewriteRule ^pagina/([a-z0-9_]+)/acompanhar/([0-9]+)/?$ index.php?diretorio=$1&tipo=acompanhar&id=$2 [NC,L]
+RewriteRule ^pagina/([a-z0-9_]+)/cargo/([0-9]+)/?$ index.php?diretorio=$1&tipo=cargo&car_id=$2 [NC,L]
+RewriteRule ^pagina/([a-z0-9_]+)/editar/(.+)/?$ index.php?diretorio=$1&tipo=editar&id=$2 [NC,L]
+RewriteRule ^pagina/([a-z0-9_]+)/categoria/([0-9]+)/editar/([0-9]+)/?$ index.php?diretorio=$1&tipo=categoria&cat_id=$2&pag_id=$3 [NC,L]
+RewriteRule ^pagina/([a-z0-9_]+)/categoria/([0-9]+)/?$ index.php?diretorio=$1&tipo=categoria&cat_id=$2 [NC,L]
+RewriteRule ^pagina/([a-z0-9_]+)/lista/([0-9]+)/?$ index.php?diretorio=$1&pagina=$2
+RewriteRule ^pagina/([a-z0-9_]+)/dia/([0-9]+)/?$ index.php?diretorio=$1&dia=$2
+RewriteRule ^pagina/([a-z0-9_]+)/?$ index.php?diretorio=$1 [NC,L]

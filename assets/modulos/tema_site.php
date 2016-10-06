@@ -1,0 +1,1 @@
+Este módulo é de responsabilidade do desenvolvedor do site.
